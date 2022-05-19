@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,9 +18,9 @@
     </tr>
 	<c:forEach var="pro" items="${list}">
       <tr>
-        <td>${pro.getProductId()}</td>
-        <td>${pro.getProductName()}</td>
-        <td>${pro.getPrice()}</td>
+        <td>${fn:escapeXml(pro.getProductId())}</td>
+        <td>${fn:escapeXml(pro.getProductName())}</td>
+        <td>${fn:escapeXml(pro.getPrice())}</td>
       </tr>
     </c:forEach>
     </table>
